@@ -3,8 +3,6 @@ import re
 
 parser = argparse.ArgumentParser(description='bits of a hex')
 parser.add_argument('hex', help='a hex to bitamize')
-
-
 args = parser.parse_args()
 hex_data = args.hex
 if re.search(r'^[0-9A-Fa-f]+$', hex_data) is None:
@@ -20,11 +18,8 @@ def splitAt(w,n):
   for i in range(0,len(w),n):
     yield w[i:i+n]
 
-
 my_bin=hex_to_bin(hex_data)
 
-#print("hexadecimal: {}".format(hex_data))
-#print("binary: {}".format(my_bin))
 print(" ".join(splitAt(my_bin,4)))
 print("    ".join(splitAt(hex_data,1)))
 
